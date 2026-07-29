@@ -23,7 +23,6 @@ Ends with **you** submitting the mint transaction on Arc yourself. No third-part
   - [6. Create your .env file](#6-create-your-env-file)
 - [Running it](#running-it)
 - [The Arc mainnet flag](#the-arc-mainnet-flag)
-- [The CCTP route](#the-cctp-route)
 - [Reference](#reference)
 - [Troubleshooting](#troubleshooting)
 
