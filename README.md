@@ -221,7 +221,7 @@ Without it, `POST /v1/transfer` returns:
 {"success":false,"message":"No active mainnet network found for domain 26"}
 ```
 
-**Treat this as unstable.** It isn't in Circle's public API documentation, and at the time of writing Circle's own published tooling still lists Arc under testnet only. It's a staged-rollout flag, which means it can change behaviour or stop working without notice, and it may not be intended for general use. If it stops working, the [CCTP route](#the-cctp-route) does not depend on it.
+**Treat this as unstable.** It isn't in Circle's public API documentation, and at the time of writing Circle's own published tooling still lists Arc under testnet only. It's a staged-rollout flag, which means it can change behaviour or stop working without notice, and it may not be intended for general use.
 
 If you'd rather not send it, delete the two lines setting it inside `gatewayHeaders()` in `src/gateway-bridge.ts`. You can add any other headers via `GW_EXTRA_HEADERS` in `.env` without touching the code.
 
@@ -261,7 +261,6 @@ Arc's USDC is a predeploy that doubles as the gas token. Note that Arc's `eth_ge
 arc-bridge/
 ├── src/
 │   ├── gateway-bridge.ts   # Gateway route (deposit / wait / transfer / all)
-│   ├── cctp-bridge.ts      # CCTP v2 route (burn / mint / all)
 │   └── check-deposit.ts    # verify a deposit landed, recover its tx hash
 ├── .env.example            # template — copy to .env
 ├── .gitignore              # keeps .env out of git
@@ -299,7 +298,7 @@ Expected during the finality window. Circle won't attest against a deposit that 
 
 ### Zero gas on Arc / the mint fails
 
-You need USDC on Arc to pay for the transaction that delivers your USDC on Arc. Fund the wallet with a small amount first. With Gateway, the attestation expires in ~10 minutes, so fix this **before** running `transfer`. With CCTP, attestations don't expire — redeem whenever.
+You need USDC on Arc to pay for the transaction that delivers your USDC on Arc. Fund the wallet with a small amount first. With Gateway, the attestation expires in ~10 minutes, so fix this **before** running `transfer`.
 
 ### Something else
 
