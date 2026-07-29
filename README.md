@@ -4,7 +4,7 @@ Move USDC from **Base** to **Arc** with direct contract calls.
 
 | Route | Script | How it works |
 | --- | --- | --- |
-| **Circle Gateway** | `src/gateway-bridge.ts` | Deposit into a Gateway balance, wait for finality, sign a burn intent, mint on Arc |
+| **Circle Gateway** | `gateway-bridge.ts` | Deposit into a Gateway balance, wait for finality, sign a burn intent, mint on Arc |
 
 Ends with **you** submitting the mint transaction on Arc yourself. No third-party bridge holds your funds, and no relayer is trusted with your money.
 
@@ -259,9 +259,8 @@ Arc's USDC is a predeploy that doubles as the gas token. Note that Arc's `eth_ge
 
 ```
 arc-bridge/
-├── src/
-│   ├── gateway-bridge.ts   # Gateway route (deposit / wait / transfer / all)
-│   └── check-deposit.ts    # verify a deposit landed, recover its tx hash
+├── gateway-bridge.ts   # Gateway route (deposit / wait / transfer / all)
+├── check-deposit.ts    # verify a deposit landed, recover its tx hash
 ├── .env.example            # template — copy to .env
 ├── .gitignore              # keeps .env out of git
 ├── package.json            # dependencies + npm run shortcuts
