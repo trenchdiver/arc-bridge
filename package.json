@@ -1,0 +1,40 @@
+{
+  "name": "arc-bridge",
+  "version": "1.0.0",
+  "description": "Bridge USDC from Base to Arc mainnet via Circle Gateway or CCTP v2, using direct contract calls",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "check": "tsx src/check-deposit.ts",
+    "deposit": "tsx src/gateway-bridge.ts deposit",
+    "wait": "tsx src/gateway-bridge.ts wait",
+    "transfer": "tsx src/gateway-bridge.ts transfer",
+    "bridge": "tsx src/gateway-bridge.ts all",
+    "cctp": "tsx src/cctp-bridge.ts all",
+    "cctp:burn": "tsx src/cctp-bridge.ts burn",
+    "cctp:mint": "tsx src/cctp-bridge.ts mint",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "arc",
+    "circle",
+    "gateway",
+    "cctp",
+    "usdc",
+    "base",
+    "bridge",
+    "viem"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.55.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

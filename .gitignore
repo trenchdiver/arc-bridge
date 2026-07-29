@@ -1,0 +1,20 @@
+# SECRETS — never commit these. Your private key lives here.
+.env
+.env.*
+!.env.example
+
+# Local run state (deposit anchor for the finality countdown)
+.gateway-state.json
+
+# Dependencies
+node_modules/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
